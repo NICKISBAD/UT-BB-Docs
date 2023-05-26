@@ -10,7 +10,9 @@ Features:
 First off i'd like to explain priorities without splitting them into a million different labels :P
 
 P1 would be Priority 1 or game:GetService("Workspace").Game.Mobs.Dummy
+
 P2 would be Priority 2 or game:GetService("Workspace").Game.Mobs.Dummy2
+
 P3 would be Priority 3 or game:GetService("Workspace").Game.Mobs.Dummy3
 
 and so on.
@@ -26,7 +28,7 @@ a system that detects whether you're in the right game or not (will put in the g
 How they work:
 
 InfHP and GSmite work because only in VIPs because the networkownership of the enemy's humanoid is none. which means you can do anything w them.
-if you were to use InfHP the game would have to account for what's happening on the other player's screen so it would reset your HP back to normaly
+if you were to use InfHP the game would have to account for what's happening on the other player's screen so it would reset your HP back to normal,
 Same for GSmite, the blaster wouldn't appear on their screen.
 
 
