@@ -15,7 +15,7 @@ P3 would be Priority 3 or game:GetService("Workspace").Game.Mobs.Dummy3
 
 and so on.
 
-Infinite HP is REALLY simple, the game uses a remote to do and calculate damage so if you just: reverse this number, you can heal yourself
+Infinite HP is REALLY simple, the game uses a remote to do and calculate damage so if you just: reverse this number (ie. Make it negative), you can heal yourself
 
 GSmite is just the remote for the Gaster Blaster with the damage argument being set to "inf"
 
@@ -29,4 +29,15 @@ InfHP and GSmite work because only in VIPs because the networkownership of the e
 if you were to use InfHP the game would have to account for what's happening on the other player's screen so it would reset your HP back to normaly
 Same for GSmite, the blaster wouldn't appear on their screen.
 
-Planning to make a different version for the halloween place
+
+
+Changelog: V0.6AEFLI{
+Added a delete attacks button
+made walkspeed+jumppower less janky
+Mobile version of GSmite
+}
+
+Plans: 
+
+# -Planning to make a different version for the christween place
+# -Planning to make a less client sided god Mode (Stay tuned)
