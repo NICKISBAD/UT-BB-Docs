@@ -1,3 +1,5 @@
+--Beta V0.6(Model:AEFLI)
+
 if game.PlaceId == 2848920787 or 8395973069 then
 
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
