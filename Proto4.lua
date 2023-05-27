@@ -204,6 +204,53 @@ Tab:AddButton({
     end
 })
 
+Tab:AddButton({
+    Name = "999999 Spears P1",
+	Callback = function()
+	     local args = {
+    [1] = "TrueSpear",
+    [2] = workspace.Game.Mobs.Dummy,
+    [3] = 999999,
+    [4] = "Skill1",
+    [5] = 0,
+    [6] = "DMG"
+ }
+
+ game:GetService("ReplicatedStorage"):WaitForChild("Skill"):FireServer(unpack(args))
+    end
+})
+
+Tab:AddButton({
+    Name = "999999 Spears P2",
+	Callback = function()
+	     local args = {
+    [1] = "TrueSpear",
+    [2] = workspace.Game.Mobs.Dummy2,
+    [3] = 999999,
+    [4] = "Skill1",
+    [5] = 0,
+    [6] = "DMG"
+ }
+
+ game:GetService("ReplicatedStorage"):WaitForChild("Skill"):FireServer(unpack(args))
+    end
+})
+
+Tab:AddButton({
+    Name = "999999 Spears P3",
+	Callback = function()
+	     local args = {
+    [1] = "TrueSpear",
+    [2] = workspace.Game.Mobs.Dummy3,
+    [3] = 999999,
+    [4] = "Skill1",
+    [5] = 0,
+    [6] = "DMG"
+ }
+
+ game:GetService("ReplicatedStorage"):WaitForChild("Skill"):FireServer(unpack(args))
+    end
+})
 
 local Tab = Window:MakeTab({ 	Name = "Secrets", 	Icon = "rbxassetid://4483345998", 	PremiumOnly = false })
 
@@ -231,6 +278,38 @@ Tab:AddDropdown({
 			plr.CFrame = CFrame.new(1426.70789, 121.170441, 18392.0605, 0.988672495, 1.80412627e-08, -0.150089115, -1.93946939e-08, 1, -7.55376206e-09, 0.150089115, 1.03791287e-08, 0.988672495)
 		end
 	end
+})
+
+Tab:AddLabel("Secret Extras ;) ")
+
+Tab:AddButton({
+    Name = "Delete most attacks (God Mode V1)",
+	Callback = function()
+    local a = game.Lighting:FindFirstChild("Lighting")
+    
+    a:Destroy()
+   
+  end
+})
+
+local tt = Instance.new("Folder")
+tt.Parent = game.Workspace
+tt.Name = "TEMPFOLDERLOL"  
+   
+Tab:AddButton({
+    Name = "God Mode V2",
+    Callback = function()
+    local br = game.ReplicatedStorage:WaitForChild("Functions")
+    br.Parent = game.Workspace:WaitForChild("TEMPFOLDERLOL")
+ end
+})
+
+Tab:AddButton({
+    Name = "Un-God Mode V2",
+    Callback = function()
+    local br = tt:WaitForChild("Functions")
+    br.Parent = game.ReplicatedStorage
+ end
 })
 			
 local Tab = Window:MakeTab({ 	Name = "Binds", 	Icon = "rbxassetid://4483345998", 	PremiumOnly = false })
@@ -287,26 +366,10 @@ Tab:AddButton({
 	end
 })
 
-local Tab = Window:MakeTab({ 	Name = "Enemy Attacks", 	Icon = "rbxassetid://4483345998", 	PremiumOnly = false })
+Tab:AddLabel("Extras")
 
 
-
-Tab:AddButton({
-    Name = "Delete most attacks (God Mode V1)",
-	Callback = function()
-    local a = game.Lighting:FindFirstChild("Lighting")
-    
-    a:Destroy()
    
-   game.StarterGui:SetCore("SendNotification", { 
- Title = "Tip";
- Text = "Rejoin to disable this!"; 
- Duration = 10
- }) 
-   
-  end
-})
-    
 OrionLib:Init()
 
 else
