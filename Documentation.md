@@ -42,4 +42,4 @@ Mobile version of GSmite
 Plans: 
 
 # -Planning to make a different version for the christween place
--Planning to make a less client sided god Mode (Stay tuned)- (DONE)
+~~Planning to make a less client sided god Mode (Stay tuned)~~ (DONE)
