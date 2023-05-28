@@ -31,15 +31,25 @@ InfHP and GSmite work because only in VIPs because the networkownership of the e
 if you were to use InfHP the game would have to account for what's happening on the other player's screen so it would reset your HP back to normal,
 Same for GSmite, the blaster wouldn't appear on their screen.
 
+God Mode V2 works because the game has a remote to calculate damage (like wise INF HP) and i just move it to a random ass location in a temp folder it makes to not let the game fire it (FUCK YOU DEVS HAHAHAHAHA)
 
 
-Changelog: V0.6AEFLI{
-Added a delete attacks button
-made walkspeed+jumppower less janky
-Mobile version of GSmite
+Changelog: V0.61BUSTER (named after my cat Buster) {
+Finally added a less client sided god mode,
+some secret features ;)
 }
 
-Plans: 
+Features (listed off memory)
+
+Inf Hp
+Give HP
+INF Damage gaster blasters and spears
+2 different god modes (excluding inf hp god mode)
+TP to secret bosses
+some other stuff i don't fucking know i'm listing off memory
+
+# -Plans: 
 
 # -Planning to make a different version for the christween place
-~~Planning to make a less client sided god Mode (Stay tuned)~~ (DONE)
+# -~~Planning to make a less client sided god Mode (Stay tuned)~~ (DONE)
+# -Find a bypass to their anti insta kill upd (fuck you devs x2)
