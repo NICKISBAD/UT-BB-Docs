@@ -1,5 +1,3 @@
---testver
-
 --Beta V0.61(Model:BUSTER)
 
 if game.PlaceId == 2848920787 or 8395973069 then
@@ -118,7 +116,7 @@ Tab:AddButton({
 	end
 })
 
-local Tab = Window:MakeTab({ 	Name = "Enemies", 	Icon = "rbxassetid://4483345998", 	PremiumOnly = false })
+local Tab = Window:MakeTab({ 	Name = "Enemies/Attacks", 	Icon = "rbxassetid://4483345998", 	PremiumOnly = false })
 
 Tab:AddLabel("Insta-kill was patched :P (fuck you devs)")
 
@@ -152,7 +150,7 @@ Tab:AddButton({
    end
 })
 
-local Tab = Window:MakeTab({ 	Name = "Attacks", 	Icon = "rbxassetid://4483345998", 	PremiumOnly = false })
+Tab:AddLabel("Attacks")
 
 local Dmg = {
   DMGVal = 0
@@ -205,6 +203,8 @@ Tab:AddButton({
  game:GetService("ReplicatedStorage").ArmorShoot:FireServer(unpack(args))
     end
 })
+
+Tab:AddLabel("Spears")
 
 Tab:AddButton({
     Name = "999999 Spears P1",
