@@ -63,6 +63,7 @@ Tab:AddLabel("1/3: there are priorities above 3.")
 Tab:AddLabel("2/3: Which is why VIPs are recommended, Your INF Damage")
 Tab:AddLabel("2.5/3:may go for another player's priority and miss")
 Tab:AddLabel("3/3: P1 = Dummy, P2 = Dummy2, P3 = Dummy3")
+Tab:AddLabel("Bonus: Clone1, UF_Sans)
 
 
 local Tab = Window:MakeTab({ 	Name = "Player", 	Icon = "rbxassetid://4483345998", 	PremiumOnly = false }) 
@@ -259,6 +260,20 @@ Tab:AddButton({
     end
 })
 
+local function spear(targ)
+	     local args = {
+    [1] = "TrueSpear",
+    [2] = targ,
+    [3] = "Inf",
+    [4] = "Skill1",
+    [5] = 0,
+    [6] = "DMG"
+ }
+
+ game:GetService("ReplicatedStorage"):WaitForChild("Skill"):FireServer(unpack(args))
+    end
+end
+
 Tab:AddButton({
     Name = "999999 Spears P3",
 	Callback = function()
@@ -274,6 +289,19 @@ Tab:AddButton({
  game:GetService("ReplicatedStorage"):WaitForChild("Skill"):FireServer(unpack(args))
     end
 })
+
+local target = "nil"
+
+Tab:AddTextbox({
+Name = "Select a target to spear",
+Default = "Input",
+TextDisappear = true,
+Callback = function(Inp)
+target = Inp
+spear(Inp)
+end
+})
+	
 
 local Tab = Window:MakeTab({ 	Name = "Secrets", 	Icon = "rbxassetid://4483345998", 	PremiumOnly = false })
 
@@ -337,36 +365,13 @@ Tab:AddButton({
 
 local Tab = Window:MakeTab({ 	Name = "Trolling", 	Icon = "rbxassetid://4483345998", 	PremiumOnly = false })
 
-local function get_plrs()
-   local plrs = {}
-   
-   for i,v in pairs(game.Players:GetPlayers()) do
-       if v ~= game.Players.LocalPlayer then
-           table.insert(plrs, v.Name)
-       end
-   end
-   
-   return plrs
-end
-
-local function goto(targ)
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(targ)
-end
-
-local plrdrop = Tab:AddDropdown({
-     Name = "Go to Player",
+Tab:AddTextbox({
+     Name = "To Player",
      Default = "Pick a player",
-     Options = {game.Players},
-     Callback = function(Val)
-      gototarg(game.Players.Character.HumanoidRootPart.CFrame)
-      end
-})
-
-Tab:AddButton({
-Name = "Refresh Players",
-Callback = function()
-      plr_drop:Refresh(get_plrs(), true)
-  end    
+     TextDisappear = true,
+     Callback = function(Value)
+	 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players [Value] .Character.HumanoidRootPart.CFrame
+	end
 })
 	
 
