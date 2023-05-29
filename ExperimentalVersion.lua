@@ -117,6 +117,29 @@ Tab:AddButton({
 	end
 })
 
+local function bully(targ)
+	local args = {
+	[1] = "RealKnife",
+	[2] = targ,
+        [3] = "inf",
+	[4] = "Skill1",
+	[5] = 0,
+	[6] = "DMG"
+})
+
+	local args2 = {
+	[1] = "SoulTrident",
+	[2] = targ,
+        [3] = "inf",
+	[4] = "Skill1",
+	[5] = 0,
+	[6] = "DMG"
+})
+
+game:GetService("ReplicatedStorage"):WaitForChild("Skill"):FireServer(unpack(args))
+game:GetService("ReplicatedStorage"):WaitForChild("Skill"):FireServer(unpack(args2))
+end
+
 local Tab = Window:MakeTab({ 	Name = "Enemies", 	Icon = "rbxassetid://4483345998", 	PremiumOnly = false })
 
 Tab:AddButton({
@@ -159,9 +182,9 @@ local TargetToSmite = {
 Tab:AddDropdown({
     Name = "God Smite an enemy",
 	Default = "Select Priority",
-	Options = {"Dummy", "Dummy2", "Dummy3"},
+	Options = {game.Workspace.Game.Mobs:WaitForChild("Dummy"), game.Workspace.Game.Mobs:WaitForChild("Dummy2"), game.Workspace.Game.Mobs:WaitForChild("Dummy3")},
 	Callback = function(Value)
-    TargetToSmite.Target = Value
+       TargetToSmite.Target = Value
 	end
 })
 
@@ -170,6 +193,15 @@ Tab:AddButton({
 	  Callback = function()
 	   GSmite(TargetToSmite.Target)
    end
+})
+
+Tab:AddButton({
+Name = "Bully Selected",
+	Default = "Select Priority",
+	Options = {game.Workspace.Game.Mobs:WaitForChild("Dummy"), game.Workspace.Game.Mobs:WaitForChild("Dummy2"), game.Workspace.Game.Mobs:WaitForChild("Dummy3")},
+	Callback = function(Value)
+bully(Value)
+	end
 })
 
 Tab:AddLabel("Attacks")
@@ -363,16 +395,7 @@ Tab:AddButton({
  end
 })
 
-local Tab = Window:MakeTab({ 	Name = "Trolling", 	Icon = "rbxassetid://4483345998", 	PremiumOnly = false })
 
-Tab:AddTextbox({
-     Name = "To Player",
-     Default = "Pick a player",
-     TextDisappear = true,
-     Callback = function(Value)
-	 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players [Value] .Character.HumanoidRootPart.CFrame
-	end
-})
 	
 
 OrionLib:Init()
