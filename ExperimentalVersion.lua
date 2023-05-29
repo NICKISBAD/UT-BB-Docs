@@ -335,9 +335,18 @@ Tab:AddButton({
  end
 })
 
+local Tab = Window:MakeTab({ 	Name = "Trolling", 	Icon = "rbxassetid://4483345998", 	PremiumOnly = false })
 
+Tab:NewDropdown({
+     Name = "Go to Player",
+     Default = "Pick",
+     Options = {game.Players:GetChildren()}
+     Callback = function(Val)
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Val
+      end
+})
+	
 
-   
 OrionLib:Init()
 
 else
