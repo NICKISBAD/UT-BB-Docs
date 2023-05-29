@@ -121,10 +121,10 @@ local Tab = Window:MakeTab({ 	Name = "Enemies", 	Icon = "rbxassetid://4483345998
 Tab:AddButton({
      Name = "Kill enemies",
      Callback = function()
-         for _,v in pairs(game.Workspace.Game.Mobs:GetChildren())) do
+         for _,v in pairs(game.Workspace.Game.Mobs:GetChildren()) do
 		if v.Name == "Enemy" then
 			v.Health = 0
-
+                      end
 		end
 	end
 end
