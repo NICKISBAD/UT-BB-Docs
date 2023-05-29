@@ -1,4 +1,4 @@
---Beta V0.61(Model:BUSTER)
+--Beta Version 5 (Model:Fuck the Devs)
 
 if game.PlaceId == 2848920787 or 8395973069 then
 
@@ -118,7 +118,28 @@ Tab:AddButton({
 
 local Tab = Window:MakeTab({ 	Name = "Enemies", 	Icon = "rbxassetid://4483345998", 	PremiumOnly = false })
 
-Tab:AddLabel("Insta-kill was patched :P (fuck you devs)")
+Tab:AddButton({
+     Name = "InstaKill enemy P1",
+     Callback = function()
+     game.Workspace.Game.Mobs.Dummy.Enemy.Health = 0
+     end
+})
+
+Tab:AddButton({
+     Name = "InstaKill enemy P2",
+     Callback = function()
+     game.Workspace.Game.Mobs.Dummy2.Enemy.Health = 0
+     end
+})
+
+Tab:AddButton({
+     Name = "InstaKill enemy P3",
+     Callback = function()
+     game.Workspace.Game.Mobs.Dummy3.Enemy.Health = 0
+     end
+})
+
+Tab:AddLabel("Above Instakill is in beta")
 
 local function GSmite(Targ)
  local args = {
@@ -150,7 +171,7 @@ Tab:AddButton({
    end
 })
 
-local Tab = Window:MakeTab({ 	Name = "Attacks", 	Icon = "rbxassetid://4483345998", 	PremiumOnly = false })
+Tab:AddLabel("Attacks")
 
 local Dmg = {
   DMGVal = 0
@@ -203,6 +224,8 @@ Tab:AddButton({
  game:GetService("ReplicatedStorage").ArmorShoot:FireServer(unpack(args))
     end
 })
+
+Tab:AddLabel("Spears")
 
 Tab:AddButton({
     Name = "999999 Spears P1",
@@ -311,65 +334,7 @@ Tab:AddButton({
     br.Parent = game.ReplicatedStorage
  end
 })
-			
-local Tab = Window:MakeTab({ 	Name = "Binds", 	Icon = "rbxassetid://4483345998", 	PremiumOnly = false })
 
-Tab:AddBind({
-    Name = "Smite P1",
-	Default = Enum.KeyCode.H,
-	Hold = false,
-	Callback = function()
-	    GSmite(game.Workspace.Game.Mobs:WaitForChild("Dummy"))
-	end
-})
-
-Tab:AddBind({
-    Name = "Smite P2",
-	Default = Enum.KeyCode.H,
-	Hold = false,
-	Callback = function()
-	    GSmite(game.Workspace.Game.Mobs:WaitForChild("Dummy2"))
-	end
-})
-
-Tab:AddBind({
-    Name = "Smite P3",
-	Default = Enum.KeyCode.H,
-	Hold = false,
-	Callback = function()
-	    GSmite(game.Workspace.Game.Mobs:WaitForChild("Dummy3"))
-	end
-})
-
-local P1 = game.Workspace.Game.Mobs:WaitForChild("Dummy")
-local P2 = game.Workspace.Game.Mobs:WaitForChild("Dummy2")
-local P3 = game.Workspace.Game.Mobs:WaitForChild("Dummy3")
-
-
-Tab:AddBind({
-    Name = "Smite all priorities",
-	Default = Enum.KeyCode.H,
-	Hold = false,
-	Callback = function()
-	    GSmite(P1)
-		GSmite(P2)
-		GSmite(P3)
-	end
-})
-
-Tab:AddButton({
-    Name = "Smite all (mobile)",
-    Callback = function()
-        GSmite(P1)
-		GSmite(P2)
-		GSmite(P3)
-	end
-})
-
-Tab:AddLabel("Extras")
-
-
-   
 OrionLib:Init()
 
 else
