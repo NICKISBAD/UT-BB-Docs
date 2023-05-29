@@ -1,4 +1,4 @@
---Beta V0.61(Model:BUSTER)
+--Experimental Test Version1 (Model:A Name that i cannot currently think of)
 
 if game.PlaceId == 2848920787 or 8395973069 then
 
