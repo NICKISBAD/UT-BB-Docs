@@ -337,13 +337,36 @@ Tab:AddButton({
 
 local Tab = Window:MakeTab({ 	Name = "Trolling", 	Icon = "rbxassetid://4483345998", 	PremiumOnly = false })
 
-Tab:AddDropdown({
+local function get_plrs()
+   local plrs = {}
+   
+   for i,v in pairs(game.Players:GetPlayers()) do
+       if v ~= game.Players.LocalPlayer then
+           table.insert(plrs, v.Name)
+       end
+   end
+   
+   return plrs
+end
+
+local function goto(targ)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(targ)
+end
+
+local plrdrop = Tab:AddDropdown({
      Name = "Go to Player",
-     Default = "Pick",
+     Default = "Pick a player",
      Options = {game.Players},
      Callback = function(Val)
-	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Val
+      gototarg(game.Players.Character.HumanoidRootPart.CFrame)
       end
+})
+
+Tab:AddButton({
+Name = "Refresh Players",
+Callback = function()
+      plr_drop:Refresh(get_plrs(), true)
+  end    
 })
 	
 
