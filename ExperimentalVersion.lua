@@ -340,7 +340,7 @@ local Tab = Window:MakeTab({ 	Name = "Trolling", 	Icon = "rbxassetid://448334599
 Tab:NewDropdown({
      Name = "Go to Player",
      Default = "Pick",
-     Options = {game.Players:GetChildren()}
+     Options = {game.Players:GetChildren()},
      Callback = function(Val)
 	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Val
       end
