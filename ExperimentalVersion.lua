@@ -64,61 +64,6 @@ Tab:AddLabel("2/3: Which is why VIPs are recommended, Your INF Damage")
 Tab:AddLabel("2.5/3:may go for another player's priority and miss")
 Tab:AddLabel("3/3: P1 = Dummy, P2 = Dummy2, P3 = Dummy3")
 
-Tab:AddLabel(" ")
-Tab:AddLabel("Key binds")
-
-Tab:AddBind({
-    Name = "Smite P1",
-	Default = Enum.KeyCode.H,
-	Hold = false,
-	Callback = function()
-	    GSmite(game.Workspace.Game.Mobs:WaitForChild("Dummy"))
-	end
-})
-
-Tab:AddBind({
-    Name = "Smite P2",
-	Default = Enum.KeyCode.H,
-	Hold = false,
-	Callback = function()
-	    GSmite(game.Workspace.Game.Mobs:WaitForChild("Dummy2"))
-	end
-})
-
-Tab:AddBind({
-    Name = "Smite P3",
-	Default = Enum.KeyCode.H,
-	Hold = false,
-	Callback = function()
-	    GSmite(game.Workspace.Game.Mobs:WaitForChild("Dummy3"))
-	end
-})
-
-local P1 = game.Workspace.Game.Mobs:WaitForChild("Dummy")
-local P2 = game.Workspace.Game.Mobs:WaitForChild("Dummy2")
-local P3 = game.Workspace.Game.Mobs:WaitForChild("Dummy3")
-
-
-Tab:AddBind({
-    Name = "Smite all priorities",
-	Default = Enum.KeyCode.H,
-	Hold = false,
-	Callback = function()
-	    GSmite(P1)
-		GSmite(P2)
-		GSmite(P3)
-	end
-})
-
-Tab:AddButton({
-    Name = "Smite all (mobile)",
-    Callback = function()
-        GSmite(P1)
-		GSmite(P2)
-		GSmite(P3)
-	end
-})
-
 
 local Tab = Window:MakeTab({ 	Name = "Player", 	Icon = "rbxassetid://4483345998", 	PremiumOnly = false }) 
 
@@ -172,6 +117,17 @@ Tab:AddButton({
 })
 
 local Tab = Window:MakeTab({ 	Name = "Enemies", 	Icon = "rbxassetid://4483345998", 	PremiumOnly = false })
+
+Tab:AddButton({
+     Name = "Kill enemies",
+     Callback = function()
+         for _.v in pairs(game.Workspace.Game.Mobs:GetChildren()))
+		if v.Name == "Enemy" then
+			v.Health = 0
+		end
+	end
+end
+})
 
 Tab:AddLabel("Insta-kill was patched :P (fuck you devs)")
 
@@ -368,6 +324,7 @@ Tab:AddButton({
     br.Parent = game.ReplicatedStorage
  end
 })
+
 
 
    
