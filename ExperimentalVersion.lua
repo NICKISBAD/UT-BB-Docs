@@ -337,7 +337,7 @@ Tab:AddButton({
 
 local Tab = Window:MakeTab({ 	Name = "Trolling", 	Icon = "rbxassetid://4483345998", 	PremiumOnly = false })
 
-Tab:NewDropdown({
+Tab:AddDropdown({
      Name = "Go to Player",
      Default = "Pick",
      Options = {game.Players:GetChildren()},
