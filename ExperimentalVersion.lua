@@ -119,15 +119,24 @@ Tab:AddButton({
 local Tab = Window:MakeTab({ 	Name = "Enemies", 	Icon = "rbxassetid://4483345998", 	PremiumOnly = false })
 
 Tab:AddButton({
-     Name = "Kill enemies",
+     Name = "InstaKill enemy P1",
      Callback = function()
-         for _,v in pairs(game.Workspace.Game.Mobs:GetChildren()) do
-		if v.Name == "Enemy" then
-			v.Health = 0
-                      end
-		end
-	end
-end
+     game.Workspace.Game.Mobs.Dummy.Enemy.Health = 0
+     end
+})
+
+Tab:AddButton({
+     Name = "InstaKill enemy P2",
+     Callback = function()
+     game.Workspace.Game.Mobs.Dummy2.Enemy.Health = 0
+     end
+})
+
+Tab:AddButton({
+     Name = "InstaKill enemy P3",
+     Callback = function()
+     game.Workspace.Game.Mobs.Dummy3.Enemy.Health = 0
+     end
 })
 
 Tab:AddLabel("Insta-kill was patched :P (fuck you devs)")
