@@ -278,7 +278,7 @@ Tab:AddButton({
 Tab:AddBind({
 Name = "RealKnife Slash Spam P1",
 Default = Enum.KeyCode.O,
-Hold = true
+Hold = true,
 Callback = function()	
 local args = {
 [1] = "RealKnife",
