@@ -1,4 +1,4 @@
---Experimental Test Version1 (Model:A Name that i cannot currently think of)
+--Beta Version 5 (Model:Fuck the Devs)
 
 if game.PlaceId == 2848920787 or 8395973069 then
 
@@ -63,7 +63,6 @@ Tab:AddLabel("1/3: there are priorities above 3.")
 Tab:AddLabel("2/3: Which is why VIPs are recommended, Your INF Damage")
 Tab:AddLabel("2.5/3:may go for another player's priority and miss")
 Tab:AddLabel("3/3: P1 = Dummy, P2 = Dummy2, P3 = Dummy3")
-Tab:AddLabel("Bonus: Clone1, UF_Sans)
 
 
 local Tab = Window:MakeTab({ 	Name = "Player", 	Icon = "rbxassetid://4483345998", 	PremiumOnly = false }) 
@@ -117,29 +116,6 @@ Tab:AddButton({
 	end
 })
 
-local function bully(targ)
-	local args = {
-	[1] = "RealKnife",
-	[2] = targ,
-        [3] = "inf",
-	[4] = "Skill1",
-	[5] = 0,
-	[6] = "DMG"
-})
-
-	local args2 = {
-	[1] = "SoulTrident",
-	[2] = targ,
-        [3] = "inf",
-	[4] = "Skill1",
-	[5] = 0,
-	[6] = "DMG"
-})
-
-game:GetService("ReplicatedStorage"):WaitForChild("Skill"):FireServer(unpack(args))
-game:GetService("ReplicatedStorage"):WaitForChild("Skill"):FireServer(unpack(args2))
-end
-
 local Tab = Window:MakeTab({ 	Name = "Enemies", 	Icon = "rbxassetid://4483345998", 	PremiumOnly = false })
 
 Tab:AddButton({
@@ -163,7 +139,7 @@ Tab:AddButton({
      end
 })
 
-Tab:AddLabel("Insta-kill was patched :P (fuck you devs)")
+Tab:AddLabel("Above Instakill is in beta")
 
 local function GSmite(Targ)
  local args = {
@@ -182,9 +158,9 @@ local TargetToSmite = {
 Tab:AddDropdown({
     Name = "God Smite an enemy",
 	Default = "Select Priority",
-	Options = {game.Workspace.Game.Mobs:WaitForChild("Dummy"), game.Workspace.Game.Mobs:WaitForChild("Dummy2"), game.Workspace.Game.Mobs:WaitForChild("Dummy3")},
+	Options = {"Dummy", "Dummy2", "Dummy3"},
 	Callback = function(Value)
-       TargetToSmite.Target = Value
+    TargetToSmite.Target = Value
 	end
 })
 
@@ -193,15 +169,6 @@ Tab:AddButton({
 	  Callback = function()
 	   GSmite(TargetToSmite.Target)
    end
-})
-
-Tab:AddButton({
-Name = "Bully Selected",
-	Default = "Select Priority",
-	Options = {game.Workspace.Game.Mobs:WaitForChild("Dummy"), game.Workspace.Game.Mobs:WaitForChild("Dummy2"), game.Workspace.Game.Mobs:WaitForChild("Dummy3")},
-	Callback = function(Value)
-bully(Value)
-	end
 })
 
 Tab:AddLabel("Attacks")
@@ -292,20 +259,6 @@ Tab:AddButton({
     end
 })
 
-local function spear(targ)
-	     local args = {
-    [1] = "TrueSpear",
-    [2] = targ,
-    [3] = "Inf",
-    [4] = "Skill1",
-    [5] = 0,
-    [6] = "DMG"
- }
-
- game:GetService("ReplicatedStorage"):WaitForChild("Skill"):FireServer(unpack(args))
-    end
-end
-
 Tab:AddButton({
     Name = "999999 Spears P3",
 	Callback = function()
@@ -321,19 +274,6 @@ Tab:AddButton({
  game:GetService("ReplicatedStorage"):WaitForChild("Skill"):FireServer(unpack(args))
     end
 })
-
-local target = "nil"
-
-Tab:AddTextbox({
-Name = "Select a target to spear",
-Default = "Input",
-TextDisappear = true,
-Callback = function(Inp)
-target = Inp
-spear(Inp)
-end
-})
-	
 
 local Tab = Window:MakeTab({ 	Name = "Secrets", 	Icon = "rbxassetid://4483345998", 	PremiumOnly = false })
 
@@ -394,9 +334,6 @@ Tab:AddButton({
     br.Parent = game.ReplicatedStorage
  end
 })
-
-
-	
 
 OrionLib:Init()
 
