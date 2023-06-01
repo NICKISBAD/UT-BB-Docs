@@ -274,6 +274,8 @@ Tab:AddButton({
  game:GetService("ReplicatedStorage"):WaitForChild("Skill"):FireServer(unpack(args))
     end
 })
+
+Tab:AddLabel("Real knife")
 	
 Tab:AddBind({
 Name = "RealKnife Slash Spam P1",
