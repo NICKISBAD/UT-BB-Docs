@@ -274,6 +274,39 @@ Tab:AddButton({
  game:GetService("ReplicatedStorage"):WaitForChild("Skill"):FireServer(unpack(args))
     end
 })
+	
+Tab:AddBind({
+Name = "RealKnife Slash Spam P1",
+Default = Enum.KeyCode.O,
+Hold = true
+Callback = function()	
+local args = {
+[1] = "RealKnife",
+[2] = game.Workspace.Game.Mobs.Dummy,
+[3] = 10000,
+[4] = "Skill1",
+[5] = 0,
+[6] = "DMG"
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Skill"):FireServer(unpack(args))	
+end
+})
+
+Tab:AddButton({
+Name = "RealKnife Slash Spam P1",
+Callback = function()
+local args = {
+[1] = "RealKnife",
+[2] = game.Workspace.Game.Mobs.Dummy,
+[3] = 10000,
+[4] = "Skill1",
+[5] = 0,
+[6] = "DMG"
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Skill"):FireServer(unpack(args))	
+end
+
+})
 
 local Tab = Window:MakeTab({ 	Name = "Secrets", 	Icon = "rbxassetid://4483345998", 	PremiumOnly = false })
 
