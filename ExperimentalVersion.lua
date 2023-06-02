@@ -1,4 +1,4 @@
---Beta Version 5 (Model:Fuck the Devs)
+--Beta Version 1.8 (INSTA KILL BYPASS HAHAHAHA FUCK YOU DEVS I WIN HAHAHA)
 
 if game.PlaceId == 2848920787 or 8395973069 then
 
@@ -118,9 +118,7 @@ Tab:AddButton({
 
 local Tab = Window:MakeTab({ 	Name = "Enemies", 	Icon = "rbxassetid://4483345998", 	PremiumOnly = false })
 
-Tab:AddLabel("Instakill only works in bonus GUI because orion has weird coding :/")
-
-Tab:AddLabel("Above Instakill is in beta")
+Tab:AddLabel("Instakill placed in bonus gui bc orion is coding like shit :/")
 
 local function GSmite(Targ)
  local args = {
@@ -256,33 +254,43 @@ Tab:AddButton({
     end
 })
 
+Tab:AddLabel("Real knife")
+	
+Tab:AddBind({
+Name = "RealKnife Slash Spam P1",
+Default = Enum.KeyCode.T,
+Hold = true,
+Callback = function()	
+local args = {
+[1] = "RealKnife",
+[2] = game.Workspace.Game.Mobs.Dummy,
+[3] = 10000,
+[4] = "Skill1",
+[5] = 0,
+[6] = "DMG"
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Skill"):FireServer(unpack(args))	
+end
+})
+
+Tab:AddButton({
+Name = "RealKnife Slash Spam P1",
+Callback = function()
+local args = {
+[1] = "RealKnife",
+[2] = game.Workspace.Game.Mobs.Dummy,
+[3] = 10000,
+[4] = "Skill1",
+[5] = 0,
+[6] = "DMG"
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Skill"):FireServer(unpack(args))	
+end
+
+})
+
 local Tab = Window:MakeTab({ 	Name = "Secrets", 	Icon = "rbxassetid://4483345998", 	PremiumOnly = false })
 
-local plr = game.Players.LocalPlayer.Character.HumanoidRootPart
-
-Tab:AddDropdown({
-    Name = "Teleport to a secret boss",
-	Default = "Select Boss",
-	Options = {"Player", "Gaster", "Toby", "Sinz", "Evil Tem", "OofEggs", "Xinos"},
-	Callback = function(selc)
-	local a = selc
-	    if a == "Player" then
-		    plr.CFrame = CFrame.new(175.254593, 156.524826, -35.5136757, -0.0283752866, -2.29360424e-08, -0.999597311, 1.04961773e-08, 1, -2.32432331e-08, 0.999597311, -1.11514842e-08, -0.0283752866)
-			elseif a == "Toby" then
-			plr.CFrame = CFrame.new(191.391251, 171.239075, 395.656433, -0.00764092663, -9.18578458e-09, -0.999970794, 2.12815121e-09, 1, -9.20231358e-09, 0.999970794, -2.19840324e-09, -0.00764092663)
-			elseif a == "Xinos" then
-			plr.CFrame = CFrame.new(-830.007629, 169.496933, -1329.19678, -0.0762154907, 3.85985608e-08, 0.997091353, 5.59963347e-08, 1, -3.44309186e-08, -0.997091353, 5.32092912e-08, -0.0762154907)
-			elseif a == "Evil Tem" then
-			plr.CFrame = CFrame.new(2249.52026, 184.615189, 480.656494, -0.999116123, 1.54631075e-09, 0.0420354344, 2.30578889e-10, 1, -3.13053903e-08, -0.0420354344, -3.12680299e-08, -0.999116123)
-			elseif a == "OofEggs" then
-			plr.CFrame = CFrame.new(2167.14746, 140.574539, 614.099915, -0.0316104814, 9.31860722e-09, 0.999500275, 8.34950455e-08, 1, -6.68262778e-09, -0.999500275, 8.32420781e-08, -0.0316104814)
-			elseif a == "Sinz" then
-			plr.CFrame = CFrame.new(340.171692, 209.98851, -3407.72705, 0.994106948, -1.29119049e-09, -0.108403757, 1.22710764e-09, 1, -6.57857879e-10, 0.108403757, 5.20958054e-10, 0.994106948)
-			elseif a == "Gaster" then
-			plr.CFrame = CFrame.new(1426.70789, 121.170441, 18392.0605, 0.988672495, 1.80412627e-08, -0.150089115, -1.93946939e-08, 1, -7.55376206e-09, 0.150089115, 1.03791287e-08, 0.988672495)
-		end
-	end
-})
 
 Tab:AddLabel("Secret Extras ;) ")
 
@@ -315,6 +323,26 @@ Tab:AddButton({
     br.Parent = game.ReplicatedStorage
  end
 })
+
+
+local Tab = Window:MakeTab({ 	Name = "Misc", 	Icon = "rbxassetid://4483345998", 	PremiumOnly = false })
+
+Tab:AddButton({
+    Name = "Bonus GUI (PC ONLY)";
+    Callback = function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/NICKISBAD/UT-BB-Docs/main/BonusGUI.lua"))()
+  end
+})
+
+Tab:AddButton({
+Name = "Bonus GUI (Mobile supported!!!")
+Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/NICKISBAD/Testing-UI-libs/main/new%202.lua"))()
+end
+})
+
+Tab:AddLabel("Above bonus gui has a working insta kill bypass (FUCK YOU DEVS HAHAHAHA")
+
 
 OrionLib:Init()
 
