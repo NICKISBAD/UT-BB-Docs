@@ -41,19 +41,19 @@ some secret features ;)
 
 Features (listed off memory)
 
-Inf Hp
+1. Inf Hp
 
-Give HP
+2. Give HP
 
-INF Damage gaster blasters and spears
+3. INF Damage gaster blasters and spears
 
-2 different god modes (excluding inf hp god mode)
+3. 2 different god modes (excluding inf hp god mode)
 
-TP to secret bosses
+4. TP to secret bosses
 
-Instakill Bypass
+5. Instakill Bypass
 
-some other stuff i don't fucking know i'm listing off memory
+6. some other stuff i don't fucking know i'm listing off memory
 
 # -Plans: 
 
