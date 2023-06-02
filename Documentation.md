@@ -50,6 +50,6 @@ some other stuff i don't fucking know i'm listing off memory
 
 # -Plans: 
 
-# -Planning to make a different version for the christween place
+# -Planning to make a different version for the christween place (soon..)
 # -~~Planning to make a less client sided god Mode (Stay tuned)~~ (DONE)
-# -Find a bypass to their anti insta kill upd (fuck you devs x2)
+# -~~Find a bypass to their anti insta kill upd (fuck you devs x2)~~ FUCK YOU DEVS HAHAHAH
