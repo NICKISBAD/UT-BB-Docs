@@ -118,28 +118,7 @@ Tab:AddButton({
 
 local Tab = Window:MakeTab({ 	Name = "Enemies", 	Icon = "rbxassetid://4483345998", 	PremiumOnly = false })
 
-Tab:AddButton({
-     Name = "InstaKill enemy P1",
-     Callback = function()
-     game.Workspace.Game.Mobs.Dummy.Enemy.Health = 0
-     end
-})
-
-Tab:AddButton({
-     Name = "InstaKill enemy P2",
-     Callback = function()
-     game.Workspace.Game.Mobs.Dummy2.Enemy.Health = 0
-     end
-})
-
-Tab:AddButton({
-     Name = "InstaKill enemy P3",
-     Callback = function()
-     game.Workspace.Game.Mobs.Dummy3.Enemy.Health = 0
-     end
-})
-
-Tab:AddLabel("Above Instakill is in beta")
+Tab:AddLabel("Instakill placed in bonus gui bc orion is coding like shit :/")
 
 local function GSmite(Targ)
  local args = {
