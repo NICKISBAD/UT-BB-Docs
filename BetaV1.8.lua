@@ -1,4 +1,4 @@
---Beta Version 5 (Model:Fuck the Devs)
+--Beta Version 1.8 (INSTA KILL BYPASS HAHAHAHA FUCK YOU DEVS I WIN HAHAHA)
 
 if game.PlaceId == 2848920787 or 8395973069 then
 
