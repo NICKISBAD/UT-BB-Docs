@@ -327,11 +327,18 @@ Tab:AddButton({
 
 local Tab = Window:MakeTab({ 	Name = "Misc", 	Icon = "rbxassetid://4483345998", 	PremiumOnly = false })
 
-Tab:NewButton({
-    Name = "Bonus GUI (NOT MOBILE SUPPORTED YET!";
+Tab:AddButton({
+    Name = "Bonus GUI (PC ONLY)";
     Callback = function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/NICKISBAD/UT-BB-Docs/main/BonusGUI.lua"))()
   end
+})
+
+Tab:AddButton({
+Name = "Bonus GUI (Mobile supported!!!")
+Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/NICKISBAD/Testing-UI-libs/main/new%202.lua"))()
+end
 })
 
 Tab:AddLabel("Above bonus gui has a working insta kill bypass (FUCK YOU DEVS HAHAHAHA")
