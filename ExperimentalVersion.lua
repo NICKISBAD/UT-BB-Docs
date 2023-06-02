@@ -118,26 +118,7 @@ Tab:AddButton({
 
 local Tab = Window:MakeTab({ 	Name = "Enemies", 	Icon = "rbxassetid://4483345998", 	PremiumOnly = false })
 
-Tab:AddButton({
-     Name = "InstaKill enemy P1",
-     Callback = function()
-     game.Workspace.Game.Mobs.Dummy.Enemy.Health = 0
-     end
-})
-
-Tab:AddButton({
-     Name = "InstaKill enemy P2",
-     Callback = function()
-     game.Workspace.Game.Mobs.Dummy2.Enemy.Health = 0
-     end
-})
-
-Tab:AddButton({
-     Name = "InstaKill enemy P3",
-     Callback = function()
-     game.Workspace.Game.Mobs.Dummy3.Enemy.Health = 0
-     end
-})
+Tab:AddLabel("Instakill only works in bonus GUI because orion has weird coding :/")
 
 Tab:AddLabel("Above Instakill is in beta")
 
@@ -172,28 +153,6 @@ Tab:AddButton({
 })
 
 Tab:AddLabel("Attacks")
-
-Tab:AddToggle({
-Name = "Testing feature",
-Default = false,
-Callback = function(val)
-    local remoteEvent = game.ReplicatedStorage.Functions
-
-local blockRemote = val
-
-remoteEvent.OnServerEvent:Connect(function(player)
-    if not blockRemote then
-        -- Engage the event's true purpose here
-        print("Remote event activated!")
-    else
-        print("Remote event blocked!")
-    end
-end)
-
--- Now, let us unleash the power to block the remote event
-blockRemote = val
-end
-})
 
 local Dmg = {
   DMGVal = 0
