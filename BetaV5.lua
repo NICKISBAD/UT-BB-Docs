@@ -370,6 +370,19 @@ Tab:AddButton({
  end
 })
 
+
+local Tab = Window:MakeTab({ 	Name = "Misc", 	Icon = "rbxassetid://4483345998", 	PremiumOnly = false })
+
+Tab:NewButton({
+    Name = "Bonus GUI";
+    Callback = function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/NICKISBAD/UT-BB-Docs/main/BonusGUI.lua"))()
+  end
+})
+
+Tab:AddLabel("Above bonus gui has a working insta kill bypass (FUCK YOU DEVS HAHAHAHA")
+
+
 OrionLib:Init()
 
 else
