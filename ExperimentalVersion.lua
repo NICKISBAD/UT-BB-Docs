@@ -173,6 +173,28 @@ Tab:AddButton({
 
 Tab:AddLabel("Attacks")
 
+Tab:AddToggle({
+Name = "Testing feature",
+Default = false,
+Callback = function(val)
+    local remoteEvent = game.ReplicatedStorage.Functions
+
+local blockRemote = val
+
+remoteEvent.OnServerEvent:Connect(function(player)
+    if not blockRemote then
+        -- Engage the event's true purpose here
+        print("Remote event activated!")
+    else
+        print("Remote event blocked!")
+    end
+end)
+
+-- Now, let us unleash the power to block the remote event
+blockRemote = val
+end
+})
+
 local Dmg = {
   DMGVal = 0
 }
