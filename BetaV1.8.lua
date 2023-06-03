@@ -341,7 +341,14 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/NICKISBAD/Testing-UI-
 end
 })
 
-Tab:AddLabel("Above bonus gui has a working insta kill bypass (FUCK YOU DEVS HAHAHAHA")
+Tab:AddButton({
+Name = "Bonus Gui V2",
+Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/NICKISBAD/UT-BB-Docs/main/Mobile%20GUI%20v2.lua"))()
+end
+})
+
+Tab:AddLabel("Above bonus guis have a working insta kill bypass (FUCK YOU DEVS HAHAHAHA")
 
 
 OrionLib:Init()
