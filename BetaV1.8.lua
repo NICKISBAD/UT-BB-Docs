@@ -328,14 +328,14 @@ Tab:AddButton({
 local Tab = Window:MakeTab({ 	Name = "Misc", 	Icon = "rbxassetid://4483345998", 	PremiumOnly = false })
 
 Tab:AddButton({
-    Name = "Bonus GUI (PC ONLY)";
+    Name = "Bonus GUI (PC ONLY)",
     Callback = function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/NICKISBAD/UT-BB-Docs/main/BonusGUI.lua"))()
   end
 })
 
 Tab:AddButton({
-Name = "Bonus GUI (Mobile supported!!!")
+Name = "Bonus GUI (Mobile supported!!!)",
 Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/NICKISBAD/Testing-UI-libs/main/new%202.lua"))()
 end
