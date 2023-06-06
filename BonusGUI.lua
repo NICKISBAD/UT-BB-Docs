@@ -59,3 +59,7 @@ end)
 Section:NewKeybind("Instant Kill P3", "Kills third priority enemy (Bypasses Dodges)", Enum.KeyCode.K, function()
 game.Workspace.Game.Mobs.Dummy3.Enemy.Health = 0
 end)
+
+Section:NewKeybind("GUI Toggle", "Toggles the gui", Enum.KeyCode.RightControl, function()
+	Library:ToggleUI()
+end)
