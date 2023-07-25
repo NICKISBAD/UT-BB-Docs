@@ -88,14 +88,12 @@ game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
 
 local Section = Tab:AddSection({ Name = "HP Modifications" })
 
+_G.Health = 0
+	
 local function SetHP(Value)
- local args = { [1] = "DamageTaken", [2] = false, [3] = -Value }
+ local args = { [1] = "DamageTaken", [2] = false, [3] = -Value  }
  game:GetService("ReplicatedStorage").Functions:FireServer(unpack(args))
 end
-
- local HPTable = {
-    HPToSet = 0
-}
 
 Tab:AddButton({
     Name = "Infinite HP",
@@ -120,80 +118,41 @@ local Tab = Window:MakeTab({ 	Name = "Enemies", 	Icon = "rbxassetid://4483345998
 
 Tab:AddLabel("Instakill placed in bonus gui bc orion is coding like shit :/")
 
-local function GSmite(Targ)
- local args = {
-    [1] = "GasterBlaster",
-    [2] = workspace.Game.Mobs [Targ],
-    [3] = "inf"
- }
 
- game:GetService("ReplicatedStorage").ArmorShoot:FireServer(unpack(args))
+Tab:AddButton({
+     Name = "God Smite NearestEnemy",
+	  Callback = function()
+				-- Assuming you have access to the player's character
+local playerCharacter = game.Players.LocalPlayer.Character
+local playerPosition = playerCharacter and playerCharacter.PrimaryPart.Position
+
+-- Get all enemies (including duplicates) with "Dummy" in their name
+local enemies = {}
+for _, enemy in ipairs(workspace.Game.Mobs:GetChildren()) do
+    if enemy.Name:find("Dummy") and enemy.PrimaryPart then
+        table.insert(enemies, enemy)
+    end
 end
 
-local TargetToSmite = {
-   Target = "Nan"
-}
+-- Function to calculate the distance between two positions using magnitude
+local function getDistance(position1, position2)
+    return (position1 - position2).magnitude
+end
 
-Tab:AddDropdown({
-    Name = "God Smite an enemy",
-	Default = "Select Priority",
-	Options = {"Dummy", "Dummy2", "Dummy3"},
-	Callback = function(Value)
-    TargetToSmite.Target = Value
-	end
-})
-
-Tab:AddButton({
-     Name = "God Smite Selected",
-	  Callback = function()
-	   GSmite(TargetToSmite.Target)
-   end
-})
-
-Tab:AddLabel("Attacks")
-
-local Dmg = {
-  DMGVal = 0
-}
-
-Tab:AddTextbox({
-    Name = "Input Damage to do",
-	Default = 0,
-	TextDisappear = false,
-	Callback = function(Value)
-	   Dmg.DMGVal = Value
-	end
-})
-
-Tab:AddButton({
-    Name = "Gaster Blaster P1",
-	Callback = function()
-	     local args = {
-    [1] = "GasterBlaster",
-    [2] = workspace.Game.Mobs:WaitForChild("Dummy"),
-    [3] = Dmg.DMGVal
- }
-
- game:GetService("ReplicatedStorage").ArmorShoot:FireServer(unpack(args))
+-- Find the nearest enemy with "Dummy" in their name to the player
+local nearestEnemy
+local nearestDistance = math.huge
+for _, enemy in ipairs(enemies) do
+    local enemyPosition = enemy.PrimaryPart.Position
+    local distance = getDistance(playerPosition, enemyPosition)
+    if distance < nearestDistance then
+        nearestEnemy = enemy
+        nearestDistance = distance
     end
-})
+end
 
-Tab:AddButton({
-    Name = "Gaster Blaster P2",
-	Callback = function()
-	     local args = {
-    [1] = "GasterBlaster",
-    [2] = workspace.Game.Mobs:WaitForChild("Dummy2"),
-    [3] = Dmg.DMGVal
- }
-
- game:GetService("ReplicatedStorage").ArmorShoot:FireServer(unpack(args))
-    end
-})
-
-Tab:AddButton({
-    Name = "Gaster Blaster P3",
-	Callback = function()
+-- Check if a nearest enemy with "Dummy" in their name was found and then use it as the target for the spell
+if nearestEnemy then
 	     local args = {
     [1] = "GasterBlaster",
     [2] = workspace.Game.Mobs:WaitForChild("Dummy3"),
@@ -202,65 +161,142 @@ Tab:AddButton({
 
  game:GetService("ReplicatedStorage").ArmorShoot:FireServer(unpack(args))
     end
+   end
+})
+
+Tab:AddLabel("Attacks")
+
+Tab:AddButton({
+    Name = "Gaster Blaster",
+	Callback = function()
+				-- Assuming you have access to the player's character
+local playerCharacter = game.Players.LocalPlayer.Character
+local playerPosition = playerCharacter and playerCharacter.PrimaryPart.Position
+
+-- Get all enemies (including duplicates) with "Dummy" in their name
+local enemies = {}
+for _, enemy in ipairs(workspace.Game.Mobs:GetChildren()) do
+    if enemy.Name:find("Dummy") and enemy.PrimaryPart then
+        table.insert(enemies, enemy)
+    end
+end
+
+-- Function to calculate the distance between two positions using magnitude
+local function getDistance(position1, position2)
+    return (position1 - position2).magnitude
+end
+
+-- Find the nearest enemy with "Dummy" in their name to the player
+local nearestEnemy
+local nearestDistance = math.huge
+for _, enemy in ipairs(enemies) do
+    local enemyPosition = enemy.PrimaryPart.Position
+    local distance = getDistance(playerPosition, enemyPosition)
+    if distance < nearestDistance then
+        nearestEnemy = enemy
+        nearestDistance = distance
+    end
+end
+
+-- Check if a nearest enemy with "Dummy" in their name was found and then use it as the target for the spell
+if nearestEnemy then
+	     local args = {
+    [1] = "GasterBlaster",
+    [2] = workspace.Game.Mobs:WaitForChild("Dummy3"),
+    [3] = Dmg.DMGVal
+ }
+
+ game:GetService("ReplicatedStorage").ArmorShoot:FireServer(unpack(args))
+    end
+			end
 })
 
 Tab:AddLabel("Spears")
 
 Tab:AddButton({
-    Name = "999999 Spears P1",
+    Name = "999999 DMG Spears",
 	Callback = function()
-	     local args = {
-    [1] = "TrueSpear",
-    [2] = workspace.Game.Mobs.Dummy,
-    [3] = 999999,
-    [4] = "Skill1",
-    [5] = 0,
-    [6] = "DMG"
- }
+local playerCharacter = game.Players.LocalPlayer.Character
+local playerPosition = playerCharacter and playerCharacter.PrimaryPart.Position
 
- game:GetService("ReplicatedStorage"):WaitForChild("Skill"):FireServer(unpack(args))
+-- Get all enemies (including duplicates) with "Dummy" in their name
+local enemies = {}
+for _, enemy in ipairs(workspace.Game.Mobs:GetChildren()) do
+    if enemy.Name:find("Dummy") and enemy.PrimaryPart then
+        table.insert(enemies, enemy)
     end
-})
+end
 
-Tab:AddButton({
-    Name = "999999 Spears P2",
-	Callback = function()
-	     local args = {
-    [1] = "TrueSpear",
-    [2] = workspace.Game.Mobs.Dummy2,
-    [3] = 999999,
-    [4] = "Skill1",
-    [5] = 0,
-    [6] = "DMG"
- }
+-- Function to calculate the distance between two positions using magnitude
+local function getDistance(position1, position2)
+    return (position1 - position2).magnitude
+end
 
- game:GetService("ReplicatedStorage"):WaitForChild("Skill"):FireServer(unpack(args))
+-- Find the nearest enemy with "Dummy" in their name to the player
+local nearestEnemy
+local nearestDistance = math.huge
+for _, enemy in ipairs(enemies) do
+    local enemyPosition = enemy.PrimaryPart.Position
+    local distance = getDistance(playerPosition, enemyPosition)
+    if distance < nearestDistance then
+        nearestEnemy = enemy
+        nearestDistance = distance
     end
-})
+end
 
-Tab:AddButton({
-    Name = "999999 Spears P3",
-	Callback = function()
-	     local args = {
-    [1] = "TrueSpear",
-    [2] = workspace.Game.Mobs.Dummy3,
-    [3] = 999999,
-    [4] = "Skill1",
-    [5] = 0,
-    [6] = "DMG"
- }
+-- Check if a nearest enemy with "Dummy" in their name was found and then use it as the target for the spell
+if nearestEnemy then
+    local args = {
+        [1] = "TrueSpear",
+        [2] = nearestEnemy,
+        [3] = 999999,
+        [4] = "Skill1",
+        [5] = 0,
+        [6] = "DMG"
+    }
+    game:GetService("ReplicatedStorage"):WaitForChild("Skill"):FireServer(unpack(args))
+end
 
- game:GetService("ReplicatedStorage"):WaitForChild("Skill"):FireServer(unpack(args))
     end
 })
 
 Tab:AddLabel("Real knife")
 	
 Tab:AddBind({
-Name = "RealKnife Slash Spam P1",
+Name = "RealKnife Slash Spam",
 Default = Enum.KeyCode.T,
 Hold = true,
 Callback = function()	
+-- Assuming you have access to the player's character
+local playerCharacter = game.Players.LocalPlayer.Character
+local playerPosition = playerCharacter and playerCharacter.PrimaryPart.Position
+
+-- Get all enemies (including duplicates) with "Dummy" in their name
+local enemies = {}
+for _, enemy in ipairs(workspace.Game.Mobs:GetChildren()) do
+    if enemy.Name:find("Dummy") and enemy.PrimaryPart then
+        table.insert(enemies, enemy)
+    end
+end
+
+-- Function to calculate the distance between two positions using magnitude
+local function getDistance(position1, position2)
+    return (position1 - position2).magnitude
+end
+
+-- Find the nearest enemy with "Dummy" in their name to the player
+local nearestEnemy
+local nearestDistance = math.huge
+for _, enemy in ipairs(enemies) do
+    local enemyPosition = enemy.PrimaryPart.Position
+    local distance = getDistance(playerPosition, enemyPosition)
+    if distance < nearestDistance then
+        nearestEnemy = enemy
+        nearestDistance = distance
+    end
+end
+
+if nearestEnemy then
 local args = {
 [1] = "RealKnife",
 [2] = game.Workspace.Game.Mobs.Dummy,
@@ -270,24 +306,10 @@ local args = {
 [6] = "DMG"
 }
 game:GetService("ReplicatedStorage"):WaitForChild("Skill"):FireServer(unpack(args))	
+				end
 end
 })
 
-Tab:AddButton({
-Name = "RealKnife Slash Spam P1",
-Callback = function()
-local args = {
-[1] = "RealKnife",
-[2] = game.Workspace.Game.Mobs.Dummy,
-[3] = 10000,
-[4] = "Skill1",
-[5] = 0,
-[6] = "DMG"
-}
-game:GetService("ReplicatedStorage"):WaitForChild("Skill"):FireServer(unpack(args))	
-end
-
-})
 
 local Tab = Window:MakeTab({ 	Name = "Secrets", 	Icon = "rbxassetid://4483345998", 	PremiumOnly = false })
 
