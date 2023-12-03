@@ -1,8 +1,15 @@
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 
-local Window = OrionLib:MakeWindow({Name = "Beat the niggas", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+_G.Debug = false
 
-local Tab = Window:MakeTab({
+if not _G.Debug then
+    _G.Window = OrionLib:MakeWindow({Name = "Beat your meat", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+elseif _G.Debug then
+	_G.Window = OrionLib:MakeWindow({Name = "DebugMode", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+end
+
+
+local Tab = _G.Window:MakeTab({
 	Name = "Tab 1",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
@@ -20,34 +27,32 @@ local function CannonDamage(NPC)
     game:GetService("ReplicatedStorage").Remotes.GunHit:FireServer(unpack(args))
 end
 
-local function CannonDamageToEntireWorkspace()
-    local args = {
-    	[1] = game.Players.LocalPlayer.Backpack:WaitForChild("Hand Cannon"),
-        [2] = Vector3.new(999,999,999)
-    }
+local function SimulateAttack()
+	
+	local args = {
+    [1] = game:GetService("Players").LocalPlayer.Character.Sword,
+    [2] = 1
+}
 
-    game:GetService("ReplicatedStorage").Remotes.GunHit:FireServer(unpack(args))
+game:GetService("ReplicatedStorage").Remotes.MeleeAttacked:FireServer(unpack(args))
 end
 
--- Call the function
-CannonDamageToEntireWorkspace()
+_G.AutoParry = false
 
+Tab:AddToggle({
+	Name = "AutoParry (face target, hold sword)",
+	Callback = function(v)
+		_G.AutoParry = v
+	end
+})
 
-local function SimulateGunShoot(Targ, Gun)
-local args = {
-        [1] = game.Players.LocalPlayer.Backpack:WaitForChild(Gun),
-        [2] = Targ.Head.Position
-    }
-
-    game:GetService("ReplicatedStorage").Remotes.GunHit:FireServer(unpack(args))
-end
-
-
-local function SimulateGun(Gun)
-	local gun = Instance.new("Tool")
-	gun.Name = Gun
-	gun.Parent = game.Players.LocalPlayer.Backpack
-end
+spawn(function()
+	while wait() do
+		if _G.AutoParry then
+			SimulateAttack()
+		end
+	end
+end)
 
 Tab:AddToggle({
 	Name = "KillAura/HitAura (Cannon Required)",
