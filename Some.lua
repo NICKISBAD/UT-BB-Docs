@@ -55,20 +55,19 @@ spawn(function()
 end)
 
 Tab:AddToggle({
-	Name = "KillAura/HitAura (Cannon Required)",
+	Name = "Auto Militant",
 	Default = false,
 	Callback = function(v)
 		_G.AutoFarm = v
 		
 		spawn(function()
-			while wait() do
+			while wait(0.2) do
 				if _G.AutoFarm then
-					local args = {
-                        [1] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Hand Cannon"),
-                        [2] = game:GetService("Players").LocalPlayer.Character.PrimaryPart.Position
-                    }
-
-                    game:GetService("ReplicatedStorage").Remotes.GunHit:FireServer(unpack(args))
+					for i,v in pairs(game.Workspace:GetChildren()) do
+						if v.Name:match("Militant") or v.Name == "Viper" or "Juggernaut" then
+							CannonDamage(v.Torso)
+						end
+					end
 				end
 			end
 		end)
@@ -118,7 +117,7 @@ local EnemyTargets = {}
 Tab:AddDropdown({
 	Name = "Enemy Targets",
 	Default = "Enemy",
-	Options = {"Robloxian", "Angry Robloxian", "Tiny Robloxian", "Gunner Robloxian", "Giant Robloxian", "Rich Robloxian", "Tiny Angry Robloxian", "Raging Robloxian", "Rox The Destroyer",  "Crazy Robloxian",  "Mummy", "Tiny Mummy", "Fast Mummy", "Strong Mummy", "Sandstone", "Carium", "Camel", "Goblin", "Orc", "Buster Goblin", "Skeleton", "Red Fungus", "Blue Fungus", "Yellow Fungus", "Green Fungus", "Gavin The Wizard", "Adalwolf"},
+	Options = {"Robloxian", "Angry Robloxian", "Tiny Robloxian", "Gunner Robloxian", "Giant Robloxian", "Rich Robloxian", "Tiny Angry Robloxian", "Raging Robloxian", "Rox The Destroyer",  "Crazy Robloxian",  "Mummy", "Tiny Mummy", "Fast Mummy", "Strong Mummy", "Sandstone", "Carium", "Camel", "Goblin", "Orc", "Buster Goblin", "Skeleton", "Red Fungus", "Blue Fungus", "Yellow Fungus", "Green Fungus", "Gavin The Wizard", "Adalwolf", "Meleer Militant", "Gunner Militant", "Grenade Militant", "Medic Militant", "Combat Militant", "Brute Militant", "Viper", "Juggernaut"},
 	Callback = function(v)
 		table.insert(EnemyTargets, v)
 	end
