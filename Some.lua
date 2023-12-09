@@ -65,7 +65,7 @@ Tab:AddToggle({
 				if _G.AutoFarm then
 					for i,v in pairs(game.Workspace:GetChildren()) do
 						if table.find({"Meleer Militant", "Gunner Militant", "Grenade Militant", "Medic Militant", "Combat Militant", "Brute Militant", "Viper", "Juggernaut"}, v.Name) then
-							CannonDamage(v.Torso.Position)
+							CannonDamage(v:WaitForChild("HumanoidRootPart").Position)
 						end
 					end
 				end
