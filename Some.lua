@@ -61,10 +61,10 @@ Tab:AddToggle({
 		_G.AutoFarm = v
 		
 		spawn(function()
-			while wait(0.2) do
+			while wait() do
 				if _G.AutoFarm then
 					for i,v in pairs(game.Workspace:GetChildren()) do
-						if table.find({"Meleer Militant", "Gunner Militant", "Grenade Militant", "Medic Militant", "Combat Militant", "Brute Militant", "Viper", "Juggernaut"}, v.Name) then
+						if table.find({"Meleer Militant", "Gunner Militant", "Grenade Militant", "Medic Militant", "Combatant Militant", "Brute Militant", "Viper", "Juggernaut"}, v.Name) then
 							CannonDamage(v:WaitForChild("HumanoidRootPart").Position)
 						end
 					end
