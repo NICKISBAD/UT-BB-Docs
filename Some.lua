@@ -64,7 +64,7 @@ Tab:AddToggle({
 			while wait(0.2) do
 				if _G.AutoFarm then
 					for i,v in pairs(game.Workspace:GetChildren()) do
-						if v.Name:match("Militant") or v.Name == "Viper" or "Juggernaut" then
+						if table.find({"Meleer Militant", "Gunner Militant", "Grenade Militant", "Medic Militant", "Combat Militant", "Brute Militant", "Viper", "Juggernaut"}, v.Name) then
 							CannonDamage(v.Torso)
 						end
 					end
