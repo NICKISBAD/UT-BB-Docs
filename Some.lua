@@ -67,7 +67,7 @@ spawn(function()
 		if _G.MilitantFarm then
 			for i,v in pairs(game.Workspace:GetChildren()) do
 				if table.find({"Meleer Militant", "Gunner Militant", "Grenader Militant", "Medic Militant", "Combatant Militant", "Brute Militant", "Viper", "Juggernaut"}, v.Name) then
-					repeat CannonDamage(v:WaitForChild("HumanoidRootPart").Position) until v.Humanoid.Health <= 0
+					repeat CannonDamage(v:WaitForChild("HumanoidRootPart").Position) wait() until v.Humanoid.Health <= 0
 			  end
 	       end
 		end
@@ -143,7 +143,7 @@ spawn(function()
 		if _G.KillTargets then
 			for i,v in pairs(game.Workspace:GetChildren()) do
 				if table.find(EnemyTargets, v.Name) then
-		            repeat CannonDamage(v.Torso.Position) until v.Humanoid.Health <= 0
+		            repeat CannonDamage(v.Torso.Position) wait() until v.Humanoid.Health <= 0
 				end
 			end
 		end
@@ -160,7 +160,7 @@ spawn(function()
             for i, v in pairs(game.Workspace:GetChildren()) do
                 if table.find({"Mummy", "Fast Mummy", "Strong Mummy", "Sandstone", "Camel", "Carium"}, v.Name) then
                     if cooldownCounter == 0 then
-                        repeat CannonDamage(v.Torso.Position) until v.Humanoid.Health <= 0
+                        repeat CannonDamage(v.Torso.Position) wait() until v.Humanoid.Health <= 0
                         cooldownCounter = cooldownDuration
                     else
                         cooldownCounter = cooldownCounter - 1
@@ -178,7 +178,7 @@ spawn(function()
             for i, v in pairs(game.Workspace:GetChildren()) do
                 if v.Name:match("Robloxian") or v.Name:match("Rox") then
                     if cooldownCounter == 0 then
-                        repeat CannonDamage(v.Torso.Position) until v.Humanoid.Health <= 0
+                        repeat CannonDamage(v.Torso.Position) wait() until v.Humanoid.Health <= 0
                         cooldownCounter = cooldownDuration
                     else
                         cooldownCounter = cooldownCounter - 1
@@ -196,7 +196,7 @@ spawn(function()
             for i, v in pairs(game.Workspace:GetChildren()) do
                 if table.find({"Goblin","Orc","Buster Goblin","Skeleton","Adalwolf","Gavin The Wizard", "Red Fungus", "Blue Fungus", "Green Fungus", "Yellow Fungus"}, v.Name) then
                     if cooldownCounter == 0 then
-                        repeat CannonDamage(v.Torso.Position) until v.Humanoid.Health <= 0
+                        repeat CannonDamage(v.Torso.Position) wait() until v.Humanoid.Health <= 0
                         cooldownCounter = cooldownDuration
                     else
                         cooldownCounter = cooldownCounter - 1
