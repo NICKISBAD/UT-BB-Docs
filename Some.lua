@@ -15,7 +15,7 @@ local Tab = _G.Window:MakeTab({
 	PremiumOnly = false
 })
 
-_G.AutoFarm = false
+_G.MilitantFarm = false
 _G.DarkAges = false
 
 local function CannonDamage(NPC)
@@ -58,21 +58,21 @@ Tab:AddToggle({
 	Name = "Auto Militant",
 	Default = false,
 	Callback = function(v)
-		_G.AutoFarm = v
-		
-		spawn(function()
-			while wait() do
-				if _G.AutoFarm then
-					for i,v in pairs(game.Workspace:GetChildren()) do
-						if table.find({"Meleer Militant", "Gunner Militant", "Grenader Militant", "Medic Militant", "Combatant Militant", "Brute Militant", "Viper", "Juggernaut"}, v.Name) then
-							CannonDamage(v:WaitForChild("HumanoidRootPart").Position)
-						end
-					end
-				end
-			end
-		end)
+		_G.MilitantFarm = v
 	end
 })
+
+spawn(function()
+	while wait() do
+		if _G.MilitantFarm then
+			for i,v in pairs(game.Workspace:GetChildren()) do
+				if table.find({"Meleer Militant", "Gunner Militant", "Grenader Militant", "Medic Militant", "Combatant Militant", "Brute Militant", "Viper", "Juggernaut"}, v.Name) then
+					repeat CannonDamage(v:WaitForChild("HumanoidRootPart").Position) until v.Humanoid.Health <= 0
+			  end
+	       end
+		end
+	end
+end)
 
 Tab:AddToggle({
 	Name = "Auto Dark Ages",
@@ -82,8 +82,6 @@ Tab:AddToggle({
 	end
 })
 
-_G.Desert = false
-_G.Park = false
  
 Tab:AddToggle({
 	Name = "Auto Desert",
@@ -145,7 +143,7 @@ spawn(function()
 		if _G.KillTargets then
 			for i,v in pairs(game.Workspace:GetChildren()) do
 				if table.find(EnemyTargets, v.Name) then
-					CannonDamage(v.Torso.Position)
+		            repeat CannonDamage(v.Torso.Position) until v.Humanoid.Health <= 0
 				end
 			end
 		end
@@ -162,7 +160,7 @@ spawn(function()
             for i, v in pairs(game.Workspace:GetChildren()) do
                 if table.find({"Mummy", "Fast Mummy", "Strong Mummy", "Sandstone", "Camel", "Carium"}, v.Name) then
                     if cooldownCounter == 0 then
-                        CannonDamage(v.Torso.Position)
+                        repeat CannonDamage(v.Torso.Position) until v.Humanoid.Health <= 0
                         cooldownCounter = cooldownDuration
                     else
                         cooldownCounter = cooldownCounter - 1
@@ -180,7 +178,7 @@ spawn(function()
             for i, v in pairs(game.Workspace:GetChildren()) do
                 if v.Name:match("Robloxian") or v.Name:match("Rox") then
                     if cooldownCounter == 0 then
-                        CannonDamage(v.Torso.Position)
+                        repeat CannonDamage(v.Torso.Position) until v.Humanoid.Health <= 0
                         cooldownCounter = cooldownDuration
                     else
                         cooldownCounter = cooldownCounter - 1
@@ -198,7 +196,7 @@ spawn(function()
             for i, v in pairs(game.Workspace:GetChildren()) do
                 if table.find({"Goblin","Orc","Buster Goblin","Skeleton","Adalwolf","Gavin The Wizard", "Red Fungus", "Blue Fungus", "Green Fungus", "Yellow Fungus"}, v.Name) then
                     if cooldownCounter == 0 then
-                        CannonDamage(v.Torso.Position)
+                        repeat CannonDamage(v.Torso.Position) until v.Humanoid.Health <= 0
                         cooldownCounter = cooldownDuration
                     else
                         cooldownCounter = cooldownCounter - 1
