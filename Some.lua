@@ -93,19 +93,19 @@ Tab:AddToggle({
 })
 
 spawn(function()
-	while wait() do
+	game:GetService("RunService").RenderStepped:Connect(function()
 		if _G.AutoSFOTH then
 			for i,v in pairs(game.Workspace:GetChildren()) do
-				if v.Name:match("Fighter") or v.Name:match("Master") then
+				if v.Name:match("Fighter") or v.Name:match("Master") or v.Name:Match("Shedletsky") then
 					CannonDamage(v:WaitForChild("HumanoidRootPart").Position)
 				end
 			end
 		end
-	end
+	end)
 end)
 
 spawn(function()
-	while wait() do
+	game:GetService("RunService").RenderStepped:Connect(function()
 		if _G.MilitantFarm then
 			for i,v in pairs(game.Workspace:GetChildren()) do
 				if table.find({"Meleer Militant", "Gunner Militant", "Grenader Militant", "Medic Militant", "Combatant Militant", "Brute Militant", "Viper", "Juggernaut"}, v.Name) then
@@ -113,7 +113,7 @@ spawn(function()
 			  end
 	       end
 		end
-	end
+	end)
 end)
 
 Tab:AddToggle({
@@ -181,72 +181,51 @@ Tab:AddButton({
 })
 
 spawn(function()
-	while wait() do
+	game:GetService("RunService").RenderStepped:Connect(function()
 		if _G.KillTargets then
 			for i,v in pairs(game.Workspace:GetChildren()) do
 				if table.find(EnemyTargets, v.Name) then
-		            CannonDamage(v.Torso.Position) wait(1)
+		            CannonDamage(v.Torso.Position) wait()
 				end
 			end
 		end
-	end
+	end)
 end)
 
-local cooldownCounter = 0
-local cooldownDuration = 1
-
--- Loop for Desert
 spawn(function()
-    while wait() do
+    game:GetService("RunService").RenderStepped:Connect(function()
         if _G.Desert then
             for i, v in pairs(game.Workspace:GetChildren()) do
                 if table.find({"Mummy", "Fast Mummy", "Strong Mummy", "Sandstone", "Camel", "Carium"}, v.Name) then
-                    if cooldownCounter == 0 then
-                        CannonDamage(v.Torso.Position) wait(1)
-                        cooldownCounter = cooldownDuration
-                    else
-                        cooldownCounter = cooldownCounter - 1
-                    end
+                    CannonDamage(v.Torso.Position) wait()
                 end
             end
         end
-    end
+    end)
 end)
 
--- Loop for Park
 spawn(function()
-    while wait() do
+    game:GetService("RunService").RenderStepped:Connect(function()
         if _G.Park then
             for i, v in pairs(game.Workspace:GetChildren()) do
                 if v.Name:match("Robloxian") or v.Name:match("Rox") then
-                    if cooldownCounter == 0 then
-                        CannonDamage(v.Torso.Position) wait(1)
-                        cooldownCounter = cooldownDuration
-                    else
-                        cooldownCounter = cooldownCounter - 1
-                    end
+                    CannonDamage(v.Torso.Position) wait()
                 end
             end
         end
-    end
+    end)
 end)
 
--- Loop for DarkAges
 spawn(function()
-    while wait() do
+    game:GetService("RunService").RenderStepped:Connect(function()
         if _G.DarkAges then
             for i, v in pairs(game.Workspace:GetChildren()) do
                 if table.find({"Goblin","Orc","Buster Goblin","Skeleton","Adalwolf","Gavin The Wizard", "Red Fungus", "Blue Fungus", "Green Fungus", "Yellow Fungus"}, v.Name) then
-                    if cooldownCounter == 0 then
-                        CannonDamage(v.Torso.Position) wait(1)
-                        cooldownCounter = cooldownDuration
-                    else
-                        cooldownCounter = cooldownCounter - 1
-                    end
+                    CannonDamage(v.Torso.Position) wait()
                 end
             end
         end
-    end
+    end)
 end)
 
 local Tab2 = _G.Window:MakeTab({
