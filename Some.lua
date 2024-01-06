@@ -96,7 +96,7 @@ spawn(function()
 	game:GetService("RunService").RenderStepped:Connect(function()
 		if _G.AutoSFOTH then
 			for i,v in pairs(game.Workspace:GetChildren()) do
-				if v.Name:match("Fighter") or v.Name:match("Master") or v.Name:match("SHEDLETSKY") then
+				if v.Name:match("Fighter") or table.find({"Sword Master", "Shedletsky"}, v.Name) then
 					CannonDamage(v:WaitForChild("HumanoidRootPart").Position)
 				end
 			end
