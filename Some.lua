@@ -97,7 +97,7 @@ spawn(function()
 		if _G.AutoSFOTH then
 			for i,v in pairs(game.Workspace:GetChildren()) do
 				if v.Name:match("Fighter") or v.Name:match("Master") or v.Name:Match("SHEDLETSKY") then
-					v:WaitForChild("HumanoidRootPart").Position
+					CannonDamage(v:WaitForChild("HumanoidRootPart").Position)
 				end
 			end
 		end
