@@ -55,7 +55,8 @@ Tab:AddButton({
 })
 
 Tab:AddLabel("--------------------------")
-Tab:AddLabel("My discord @ is NOT tabletopjiver anymore please don't message my sister?")
+Tab:AddLabel("My discord @ is NOT tabletopjiver anymore")
+Tab:AddLabel("^ please don't message my sister? i dont even exploit anymore")
 Tab:AddLabel("--------------------------")
 Tab:AddLabel("Priorities:Explained")
 Tab:AddLabel("(1/3: Each enemy has their assigned priority value, in a public.")
