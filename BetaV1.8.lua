@@ -29,10 +29,10 @@ local Tab = Window:MakeTab({ 	Name = "Other", 	Icon = "rbxassetid://4483345998",
 Tab:AddLabel("Socials")
 Tab:AddLabel("--------------------------")
 Tab:AddButton({ 
-  Name = "My ScriptBlox Profile",
+  Name = "DEPRECATED",
   Callback = function()
-     setclipboard("https://scriptblox.com/u/TabletopJiver")
-	 notif("Copied link!", "Copied my Scriptblox profile's link!", 5)
+     setclipboard("nil")
+	 notif("fail", "normally this would copy my scriptblox prof but I don't script anymore", 5)
   end
 })
 Tab:AddLabel("--------------------------")
@@ -55,7 +55,7 @@ Tab:AddButton({
 })
 
 Tab:AddLabel("--------------------------")
-Tab:AddLabel("My discord tag is TableTopJiver#3623 for help and inquiries")
+Tab:AddLabel("My discord @ is NOT tabletopjiver anymore please don't message my sister?")
 Tab:AddLabel("--------------------------")
 Tab:AddLabel("Priorities:Explained")
 Tab:AddLabel("(1/3: Each enemy has their assigned priority value, in a public.")
